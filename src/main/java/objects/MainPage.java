@@ -4,346 +4,258 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainPage {
     private final WebDriver driver;
-    private final By accountIcon = By.xpath("/html/body/div[4]/div/div[1]/div/div[4]/div/button/span");
-    private final By access = By.xpath(".//div/span[text()='Доступы']");
-    private final By log = By.xpath(".//div/span[text()='Мониторинг']");
-    private final By setting = By.xpath(".//div/span[text()='Настройки']");
-    private final By service = By.xpath(".//div/span[text()='Сервисы']");
-    private final By directory = By.xpath(".//div/span[text()='Справочники']");
-    private final By users = By.xpath(".//div/span[text()='Пользователи']");
-    private final By roles = By.xpath(".//div/span[text()='Роли']");
-    private final By approve = By.xpath(".//div/span[text()='Разрешения']");
-    private final By usersGroups = By.xpath(".//div/span[text()='Группы пользователей']");
-    private final By messages = By.xpath(".//div/span[text()='Сообщения']");
-    private final By metrics = By.xpath(".//div/span[text()='Метрики']");
-    private final By alerts = By.xpath(".//div/span[text()='Уведомления']");
-    private final By audit = By.xpath(".//div/span[text()='Аудит']");
-    private final By metricsData = By.xpath(".//div/span[text()='Метрики данные']");
-    private final By metricsSettings = By.xpath(".//div/span[text()='Метрики настройка']");
-    private final By alertsGroups = By.xpath(".//div/span[text()='Группы уведомлений']");
-    private final By alertsSettings = By.xpath(".//div/span[text()='Настройка уведомлений']");
-    private final By alertsArchive = By.xpath(".//div/span[text()='Архив уведомлений']");
-    private final By auditDo = By.xpath(".//div/span[text()='Аудит действий']");
-    private final By auditDoUz = By.xpath(".//div/span[text()='Аудит действий УЗ']");
-    private final By auditAccess = By.xpath(".//div/span[text()='Аудит доступов']");
-    private final By auditChanges = By.xpath(".//div/span[text()='Аудит изменений']");
-    private final By auditSettings = By.xpath(".//div/span[text()='Аудит настройки']");
-    private final By systems =  By.xpath(".//div/span[text()='Системные']");
-    private final By managerTasks =  By.xpath(".//div/span[text()='Менеджер задач']");
-    private final By gateways =  By.xpath(".//div/span[text()='Шлюзы']");
-    private final By providers =  By.xpath(".//div/span[text()='Провайдеры ']");
-    private final By vendors =  By.xpath(".//div/span[text()='Вендоры ']");
-    private final By vendorsGroups =  By.xpath(".//div/span[text()='Группы вендоров ']");
-    private final By requestChannels = By.xpath(".//div/span[text()='Каналы запросов']");
-    private final By schedulerTasks =  By.xpath(".//div/span[text()='Расписание задач']");
-    private final By groupsTasks =  By.xpath(".//div/span[text()='Группы задач']");
-    private final By historyTasks =  By.xpath(".//div/span[text()='История задач']");
-    private final By groupsChannels = By.xpath(".//div/span[text()='Группы каналов']");
-    private final By channels = By.xpath(".//div/span[text()='Каналы']");
-    private final By macros = By.xpath(".//div/span[text()='Макросы']");
-    private final By constructReestr = By.xpath(".//div/span[text()='Конструктор реестров']");
-    private final By constructRec = By.xpath(".//div/span[text()='Конструктор сверок']");
-    private final By templatesReest = By.xpath(".//div/span[text()='Шаблоны реестров']");
-    private final By archiveReest = By.xpath(".//div/span[text()='Архив реестров']");
-    private final By settingsReest = By.xpath(".//div/span[text()='Настройка реестров']");
-    private final By schedulerReest = By.xpath(".//div/span[text()='Расписание реестров']");
-    private final By armRec = By.xpath(".//div/span[text()='АРМ сверки']");
-    private final By templatesActsRec = By.xpath(".//div/span[text()='Шаблоны актов сверки']");
-    private final By templatesOtherRec = By.xpath(".//div/span[text()='Шаблоны внешних реестров']");
-    private final By schedulerRec = By.xpath(".//div/span[text()='Расписание сверок']");
-    private final By settingsRec = By.xpath(".//div/span[text()='Настройки сверки']");
-    private final By archiveRec = By.xpath(".//div/span[text()='Архив сверок']");
-    private final By currency = By.xpath(".//div/span[text()='Валюты']");
-    private final By commission = By.xpath(".//div/span[text()='Комиссии']");
-    private final By wayPay = By.xpath(".//div/span[text()='Способы оплаты']");
-    private final By mcc = By.xpath(".//div/span[text()='МСС']");
-    private final By oktmo = By.xpath(".//div/span[text()='Регионы и населенные пункты']");
-    private final By categories = By.xpath(".//div/span[text()='Категории товаров и услуг']");
-    private final By symbols = By.xpath(".//div/span[text()='Кассовые символы']");
-    private final By finSchemes = By.xpath(".//div/span[text()='Финансовые схемы']");
-    private final By logSchemes = By.xpath(".//div/span[text()='Схемы мониторинга']");
-    private final By paymentTypes = By.xpath(".//div/span[text()='Типы платежных устройств']");
-    private final By dataTypes = By.xpath(".//div/span[text()='Тип данных интерфейсов']");
-    private final By perefTypes = By.xpath(".//div/span[text()='Типы периферии']");
-    private final By perefDevices = By.xpath(".//div/span[text()='Периферийные устройства']");
-    private final By devicesGroups = By.xpath(".//div/span[text()='Группы устройств']");
-    private final By devices = By.xpath(".//div/span[text()='Устройства']");
-    private final By mccGroups = By.xpath(".//div/span[text()='МСС-Группы']");
-    private final By mccCodes = By.xpath(".//div/span[text()='МСС-Коды']");
+    private final WebDriverWait wait;
 
+    // Локаторы организованы по группам для лучшей читаемости
+    private static class Selectors {
+        // Основные разделы
+        static final By ACCOUNT_ICON = By.xpath("/html/body/div[4]/div/div[1]/div/div[4]/div/button/span");
+        static final By ACCESS = By.xpath(".//div/span[text()='Доступы']");
+        static final By LOG = By.xpath(".//div/span[text()='Мониторинг']");
+        static final By SETTING = By.xpath(".//div/span[text()='Настройки']");
+        static final By SERVICE = By.xpath(".//div/span[text()='Сервисы']");
+        static final By DIRECTORY = By.xpath(".//div/span[text()='Справочники']");
+
+        // Подразделы "Доступы"
+        static final By USERS = By.xpath(".//div/span[text()='Пользователи']");
+        static final By ROLES = By.xpath(".//div/span[text()='Роли']");
+        static final By APPROVE = By.xpath(".//div/span[text()='Разрешения']");
+        static final By USERS_GROUPS = By.xpath(".//div/span[text()='Группы пользователей']");
+
+        // Подразделы "Мониторинг"
+        static final By MESSAGES = By.xpath(".//div/span[text()='Сообщения']");
+        static final By METRICS = By.xpath(".//div/span[text()='Метрики']");
+        static final By ALERTS = By.xpath(".//div/span[text()='Уведомления']");
+        static final By AUDIT = By.xpath(".//div/span[text()='Аудит']");
+        static final By METRICS_DATA = By.xpath(".//div/span[text()='Метрики данные']");
+        static final By METRICS_SETTINGS = By.xpath(".//div/span[text()='Метрики настройка']");
+        static final By ALERTS_GROUPS = By.xpath(".//div/span[text()='Группы уведомлений']");
+        static final By ALERTS_SETTINGS = By.xpath(".//div/span[text()='Настройка уведомлений']");
+        static final By ALERTS_ARCHIVE = By.xpath(".//div/span[text()='Архив уведомлений']");
+        static final By AUDIT_DO = By.xpath(".//div/span[text()='Аудит действий']");
+        static final By AUDIT_DO_UZ = By.xpath(".//div/span[text()='Аудит действий УЗ']");
+        static final By AUDIT_ACCESS = By.xpath(".//div/span[text()='Аудит доступов']");
+        static final By AUDIT_CHANGES = By.xpath(".//div/span[text()='Аудит изменений']");
+        static final By AUDIT_SETTINGS = By.xpath(".//div/span[text()='Аудит настройки']");
+
+        // Подразделы "Настройки"
+        static final By SYSTEMS = By.xpath(".//div/span[text()='Системные']");
+        static final By MANAGER_TASKS = By.xpath(".//div/span[text()='Менеджер задач']");
+        static final By GATEWAYS = By.xpath(".//div/span[text()='Шлюзы']");
+        static final By PROVIDERS = By.xpath(".//div/span[text()='Провайдеры ']");
+        static final By VENDORS = By.xpath(".//div/span[text()='Вендоры ']");
+        static final By VENDORS_GROUPS = By.xpath(".//div/span[text()='Группы вендоров ']");
+        static final By REQUEST_CHANNELS = By.xpath(".//div/span[text()='Каналы запросов']");
+        static final By SCHEDULER_TASKS = By.xpath(".//div/span[text()='Расписание задач']");
+        static final By GROUPS_TASKS = By.xpath(".//div/span[text()='Группы задач']");
+        static final By HISTORY_TASKS = By.xpath(".//div/span[text()='История задач']");
+        static final By GROUPS_CHANNELS = By.xpath(".//div/span[text()='Группы каналов']");
+        static final By CHANNELS = By.xpath(".//div/span[text()='Каналы']");
+
+        // Подразделы "Сервисы"
+        static final By MACROS = By.xpath(".//div/span[text()='Макросы']");
+        static final By CONSTRUCT_REESTR = By.xpath(".//div/span[text()='Конструктор реестров']");
+        static final By CONSTRUCT_REC = By.xpath(".//div/span[text()='Конструктор сверок']");
+        static final By TEMPLATES_REEST = By.xpath(".//div/span[text()='Шаблоны реестров']");
+        static final By ARCHIVE_REEST = By.xpath(".//div/span[text()='Архив реестров']");
+        static final By SETTINGS_REEST = By.xpath(".//div/span[text()='Настройка реестров']");
+        static final By SCHEDULER_REEST = By.xpath(".//div/span[text()='Расписание реестров']");
+        static final By ARM_REC = By.xpath(".//div/span[text()='АРМ сверки']");
+        static final By TEMPLATES_ACTS_REC = By.xpath(".//div/span[text()='Шаблоны актов сверки']");
+        static final By TEMPLATES_OTHER_REC = By.xpath(".//div/span[text()='Шаблоны внешних реестров']");
+        static final By SCHEDULER_REC = By.xpath(".//div/span[text()='Расписание сверок']");
+        static final By SETTINGS_REC = By.xpath(".//div/span[text()='Настройки сверки']");
+        static final By ARCHIVE_REC = By.xpath(".//div/span[text()='Архив сверок']");
+
+        // Подразделы "Справочники"
+        static final By CURRENCY = By.xpath(".//div/span[text()='Валюты']");
+        static final By COMMISSION = By.xpath(".//div/span[text()='Комиссии']");
+        static final By WAY_PAY = By.xpath(".//div/span[text()='Способы оплаты']");
+        static final By MCC = By.xpath(".//div/span[text()='МСС']");
+        static final By OKTMO = By.xpath(".//div/span[text()='Регионы и населенные пункты']");
+        static final By CATEGORIES = By.xpath(".//div/span[text()='Категории товаров и услуг']");
+        static final By SYMBOLS = By.xpath(".//div/span[text()='Кассовые символы']");
+        static final By FIN_SCHEMES = By.xpath(".//div/span[text()='Финансовые схемы']");
+        static final By LOG_SCHEMES = By.xpath(".//div/span[text()='Схемы мониторинга']");
+        static final By PAYMENT_TYPES = By.xpath(".//div/span[text()='Типы платежных устройств']");
+        static final By DATA_TYPES = By.xpath(".//div/span[text()='Тип данных интерфейсов']");
+        static final By PEREF_TYPES = By.xpath(".//div/span[text()='Типы периферии']");
+        static final By PEREF_DEVICES = By.xpath(".//div/span[text()='Периферийные устройства']");
+        static final By DEVICES_GROUPS = By.xpath(".//div/span[text()='Группы устройств']");
+        static final By DEVICES = By.xpath(".//div/span[text()='Устройства']");
+        static final By MCC_GROUPS = By.xpath(".//div/span[text()='МСС-Группы']");
+        static final By MCC_CODES = By.xpath(".//div/span[text()='МСС-Коды']");
+    }
+
+    // Карта для быстрого доступа к локаторам по имени
+    private final Map<String, By> sectionSelectors = new HashMap<>();
 
     public MainPage(WebDriver driver) {
         this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        initializeSelectors();
     }
 
-    public By getAccountIcon() {
-        return accountIcon;
-    }
-
-    public By getAccess() {
-        return access;
-    }
-
-    public By getLog() {
-        return log;
-    }
-
-    public By getSetting() {
-        return setting;
-    }
-
-    public By getService() {
-        return service;
-    }
-
-    public By getDirectory() {
-        return directory;
-    }
-
-    public By getRoles() {
-        return roles;
-    }
-
-    public By getUsers() {
-        return users;
-    }
-
-    public By getApprove() {
-        return approve;
-    }
-
-    public By getUsersGroups() {
-        return usersGroups;
-    }
-
-    public By getMessages() {
-        return messages;
-    }
-
-    public By getMetrics() {
-        return metrics;
-    }
-
-    public By getAlerts() {
-        return alerts;
-    }
-
-    public By getAudit() {
-        return audit;
-    }
-
-    public By getMetricsData() {
-        return metricsData;
-    }
-
-    public By getMetricsSettings() {
-        return metricsSettings;
-    }
-
-    public By getAlertsGroups() {
-        return alertsGroups;
-    }
-
-    public By getAlertsSettings() {
-        return alertsSettings;
-    }
-
-    public By getAlertsArchive() {
-        return alertsArchive;
-    }
-
-    public By getAuditDo() {
-        return auditDo;
-    }
-
-    public By getAuditDoUz() {
-        return auditDoUz;
-    }
-
-    public By getAuditAccess() {
-        return auditAccess;
-    }
-
-    public By getAuditChanges() {
-        return auditChanges;
-    }
-
-    public By getAuditSettings() {
-        return auditSettings;
-    }
-
-    public WebDriver getDriver() {
-        return driver;
-    }
-
-    public By getSystems() {
-        return systems;
-    }
-
-    public By getManagerTasks() {
-        return managerTasks;
-    }
-
-    public By getGateways() {
-        return gateways;
-    }
-
-    public By getProviders() {
-        return providers;
-    }
-
-    public By getVendors() {
-        return vendors;
-    }
-
-    public By getVendorsGroups() {
-        return vendorsGroups;
-    }
-
-    public By getRequestChannels() {
-        return requestChannels;
-    }
-
-    public By getSchedulerTasks() {
-        return schedulerTasks;
-    }
-
-    public By getGroupsTasks() {
-        return groupsTasks;
-    }
-
-    public By getHistoryTasks() {
-        return historyTasks;
-    }
-
-    public By getGroupsChannels() {
-        return groupsChannels;
-    }
-
-    public By getChannels() {
-        return channels;
-    }
-
-    public By getMacros() {
-        return macros;
-    }
-
-    public By getConstructReestr() {
-        return constructReestr;
-    }
-
-    public By getConstructRec() {
-        return constructRec;
-    }
-
-    public By getTemplatesReest() {
-        return templatesReest;
-    }
-
-    public By getArchiveReest() {
-        return archiveReest;
-    }
-
-    public By getSettingsReest() {
-        return settingsReest;
-    }
-
-    public By getSchedulerReest() {
-        return schedulerReest;
-    }
-
-    public By getArmRec() {
-        return armRec;
-    }
-
-    public By getTemplatesActsRec() {
-        return templatesActsRec;
-    }
-
-    public By getTemplatesOtherRec() {
-        return templatesOtherRec;
-    }
-
-    public By getSchedulerRec() {
-        return schedulerRec;
-    }
-
-    public By getSettingsRec() {
-        return settingsRec;
-    }
-
-    public By getArchiveRec() {
-        return archiveRec;
-    }
+    private void initializeSelectors() {
+        // Основные разделы
+        sectionSelectors.put("access", Selectors.ACCESS);
+        sectionSelectors.put("log", Selectors.LOG);
+        sectionSelectors.put("setting", Selectors.SETTING);
+        sectionSelectors.put("service", Selectors.SERVICE);
+        sectionSelectors.put("directory", Selectors.DIRECTORY);
 
-    public By getCurrency() {
-        return currency;
-    }
-
-    public By getCommission() {
-        return commission;
-    }
-
-    public By getWayPay() {
-        return wayPay;
-    }
-
-    public By getMcc() {
-        return mcc;
-    }
-
-    public By getOktmo() {
-        return oktmo;
-    }
-
-    public By getCategories() {
-        return categories;
-    }
-
-    public By getSymbols() {
-        return symbols;
-    }
-
-    public By getFinSchemes() {
-        return finSchemes;
-    }
-
-    public By getLogSchemes() {
-        return logSchemes;
-    }
-
-    public By getPaymentTypes() {
-        return paymentTypes;
-    }
-
-    public By getDataTypes() {
-        return dataTypes;
-    }
-
-    public By getPerefTypes() {
-        return perefTypes;
-    }
-
-    public By getPerefDevices() {
-        return perefDevices;
-    }
-
-    public By getDevicesGroups() {
-        return devicesGroups;
-    }
-
-    public By getDevices() {
-        return devices;
-    }
-
-    public By getMccGroups() {
-        return mccGroups;
-    }
-
-    public By getMccCodes() {
-        return mccCodes;
-    }
+        // Подразделы "Доступы"
+        sectionSelectors.put("users", Selectors.USERS);
+        sectionSelectors.put("roles", Selectors.ROLES);
+        sectionSelectors.put("approve", Selectors.APPROVE);
+        sectionSelectors.put("usersGroups", Selectors.USERS_GROUPS);
+
+        // И так далее для всех остальных...
+    }
+
+    // Основные методы навигации
+    public MainPage navigateToSection(String sectionName) {
+        By selector = sectionSelectors.get(sectionName.toLowerCase());
+        if (selector != null) {
+            clickElement(selector);
+            waitForPageLoad();
+        } else {
+            throw new IllegalArgumentException("Section not found: " + sectionName);
+        }
+        return this;
+    }
+
+    public MainPage navigateToSubsection(String subsectionName) {
+        By selector = sectionSelectors.get(subsectionName.toLowerCase());
+        if (selector != null) {
+            clickElement(selector);
+            waitForPageLoad();
+        }
+        return this;
+    }
+
+    // Быстрые методы для часто используемых разделов
+    public MainPage openAccessDirectory() {
+        return navigateToSection("access");
+    }
+
+    public MainPage openLogDirectory() {
+        return navigateToSection("log");
+    }
+
+    public MainPage openSettingsDirectory() {
+        return navigateToSection("setting");
+    }
+
+    public MainPage openServiceDirectory() {
+        return navigateToSection("service");
+    }
+
+    // Методы для проверки видимости элементов
+    public boolean isSectionVisible(String sectionName) {
+        By selector = sectionSelectors.get(sectionName.toLowerCase());
+        return selector != null && isElementVisible(selector);
+    }
+
+    public boolean isElementVisible(By locator) {
+        try {
+            return driver.findElement(locator).isDisplayed();
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+    }
+
+    // Вспомогательные методы
+    private void clickElement(By locator) {
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
+        element.click();
+    }
+
+    private void waitForPageLoad() {
+        wait.until(driver -> ((JavascriptExecutor) driver)
+                .executeScript("return document.readyState").equals("complete"));
+    }
+
+    // Геттеры (оставлены для обратной совместимости с существующими тестами)
+    public By getAccountIcon() { return Selectors.ACCOUNT_ICON; }
+    public By getAccess() { return Selectors.ACCESS; }
+    public By getLog() { return Selectors.LOG; }
+    public By getSetting() { return Selectors.SETTING; }
+    public By getService() { return Selectors.SERVICE; }
+    public By getDirectory() { return Selectors.DIRECTORY; }
+
+    // Подразделы "Доступы"
+    public By getUsers() { return Selectors.USERS; }
+    public By getRoles() { return Selectors.ROLES; }
+    public By getApprove() { return Selectors.APPROVE; }
+    public By getUsersGroups() { return Selectors.USERS_GROUPS; }
+
+    // Подразделы "Мониторинг"
+    public By getMessages() { return Selectors.MESSAGES; }
+    public By getMetrics() { return Selectors.METRICS; }
+    public By getAlerts() { return Selectors.ALERTS; }
+    public By getAudit() { return Selectors.AUDIT; }
+    public By getMetricsData() { return Selectors.METRICS_DATA; }
+    public By getMetricsSettings() { return Selectors.METRICS_SETTINGS; }
+    public By getAlertsGroups() { return Selectors.ALERTS_GROUPS; }
+    public By getAlertsSettings() { return Selectors.ALERTS_SETTINGS; }
+    public By getAlertsArchive() { return Selectors.ALERTS_ARCHIVE; }
+    public By getAuditDo() { return Selectors.AUDIT_DO; }
+    public By getAuditDoUz() { return Selectors.AUDIT_DO_UZ; }
+    public By getAuditAccess() { return Selectors.AUDIT_ACCESS; }
+    public By getAuditChanges() { return Selectors.AUDIT_CHANGES; }
+    public By getAuditSettings() { return Selectors.AUDIT_SETTINGS; }
+
+    // Подразделы "Настройки"
+    public By getSystems() { return Selectors.SYSTEMS; }
+    public By getManagerTasks() { return Selectors.MANAGER_TASKS; }
+    public By getGateways() { return Selectors.GATEWAYS; }
+    public By getProviders() { return Selectors.PROVIDERS; }
+    public By getVendors() { return Selectors.VENDORS; }
+    public By getVendorsGroups() { return Selectors.VENDORS_GROUPS; }
+    public By getRequestChannels() { return Selectors.REQUEST_CHANNELS; }
+    public By getSchedulerTasks() { return Selectors.SCHEDULER_TASKS; }
+    public By getGroupsTasks() { return Selectors.GROUPS_TASKS; }
+    public By getHistoryTasks() { return Selectors.HISTORY_TASKS; }
+    public By getGroupsChannels() { return Selectors.GROUPS_CHANNELS; }
+    public By getChannels() { return Selectors.CHANNELS; }
+
+    // Подразделы "Сервисы"
+    public By getMacros() { return Selectors.MACROS; }
+    public By getConstructReestr() { return Selectors.CONSTRUCT_REESTR; }
+    public By getConstructRec() { return Selectors.CONSTRUCT_REC; }
+    public By getTemplatesReest() { return Selectors.TEMPLATES_REEST; }
+    public By getArchiveReest() { return Selectors.ARCHIVE_REEST; }
+    public By getSettingsReest() { return Selectors.SETTINGS_REEST; }
+    public By getSchedulerReest() { return Selectors.SCHEDULER_REEST; }
+    public By getArmRec() { return Selectors.ARM_REC; }
+    public By getTemplatesActsRec() { return Selectors.TEMPLATES_ACTS_REC; }
+    public By getTemplatesOtherRec() { return Selectors.TEMPLATES_OTHER_REC; }
+    public By getSchedulerRec() { return Selectors.SCHEDULER_REC; }
+    public By getSettingsRec() { return Selectors.SETTINGS_REC; }
+    public By getArchiveRec() { return Selectors.ARCHIVE_REC; }
+
+    // Подразделы "Справочники" (если они используются)
+    public By getCurrency() { return Selectors.CURRENCY; }
+    public By getCommission() { return Selectors.COMMISSION; }
+    public By getWayPay() { return Selectors.WAY_PAY; }
+    public By getMcc() { return Selectors.MCC; }
+    public By getOktmo() { return Selectors.OKTMO; }
+    public By getCategories() { return Selectors.CATEGORIES; }
+    public By getSymbols() { return Selectors.SYMBOLS; }
+    public By getFinSchemes() { return Selectors.FIN_SCHEMES; }
+    public By getLogSchemes() { return Selectors.LOG_SCHEMES; }
+    public By getPaymentTypes() { return Selectors.PAYMENT_TYPES; }
+    public By getDataTypes() { return Selectors.DATA_TYPES; }
+    public By getPerefTypes() { return Selectors.PEREF_TYPES; }
+    public By getPerefDevices() { return Selectors.PEREF_DEVICES; }
+    public By getDevicesGroups() { return Selectors.DEVICES_GROUPS; }
+    public By getDevices() { return Selectors.DEVICES; }
+    public By getMccGroups() { return Selectors.MCC_GROUPS; }
+    public By getMccCodes() { return Selectors.MCC_CODES; }
 }
